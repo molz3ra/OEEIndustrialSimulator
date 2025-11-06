@@ -120,7 +120,7 @@ Para grandes mudanças, abra primeiro uma issue para discutir o que você gostar
 
 **Lucas Mol**
 📫 [GitHub](https://github.com/molz3ra)
-📫 [LinkedIn] linkedin.com/in/mol035
+📫 [LinkedIn](linkedin.com/in/mol035)
 ---
 
 ## 🛠️ Licença
