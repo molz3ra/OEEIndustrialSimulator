@@ -1,66 +1,98 @@
+import { useQuery } from "@tanstack/react-query";
 import StatCard from "@/components/StatCard";
 import DowntimeChart from "@/components/DowntimeChart";
 import DowntimeDistribution from "@/components/DowntimeDistribution";
 import DowntimeEventsTable from "@/components/DowntimeEventsTable";
 import { Clock, Activity, TrendingUp, AlertTriangle } from "lucide-react";
 
+type DowntimeEvent = {
+  id: number;
+  reason: string;
+  notes: string;
+  startTime: string;
+  endTime: string | null;
+  duration: number | null;
+};
+
+type Statistics = {
+  totalDuration: number;
+  eventCount: number;
+  avgDuration: number;
+  activeCount: number;
+};
+
+type ReasonData = {
+  reason: string;
+  duration: number;
+  count: number;
+};
+
+const CHART_COLORS = [
+  "hsl(210, 85%, 32%)",
+  "hsl(28, 92%, 45%)",
+  "hsl(142, 76%, 36%)",
+  "hsl(262, 83%, 58%)",
+  "hsl(340, 82%, 52%)",
+];
+
 export default function DashboardPage() {
-  const chartData = [
-    { reason: "Mechanical Failure", duration: 145, count: 8 },
-    { reason: "Tool Changeover (Setup)", duration: 98, count: 12 },
-    { reason: "Material Shortage", duration: 67, count: 5 },
-    { reason: "Electrical Maintenance", duration: 42, count: 3 },
-  ];
+  const { data: statistics, isLoading: statsLoading } = useQuery<Statistics>({
+    queryKey: ["/api/downtime/statistics"],
+    refetchInterval: 10000,
+  });
 
-  const distributionData = [
-    { reason: "Mechanical Failure", percentage: 41, color: "hsl(210, 85%, 32%)" },
-    { reason: "Tool Changeover", percentage: 28, color: "hsl(28, 92%, 45%)" },
-    { reason: "Material Shortage", percentage: 19, color: "hsl(142, 76%, 36%)" },
-    { reason: "Electrical Maintenance", percentage: 12, color: "hsl(262, 83%, 58%)" },
-  ];
+  const { data: byReason, isLoading: reasonLoading } = useQuery<ReasonData[]>({
+    queryKey: ["/api/downtime/by-reason"],
+    refetchInterval: 10000,
+  });
 
-  const eventsData = [
-    {
-      id: 1,
-      timestamp: "2025-01-06 14:23",
-      reason: "Mechanical Failure",
-      duration: "00:45:12",
-      notes: "Roller X broke, waiting for replacement",
-      status: "active" as const,
-    },
-    {
-      id: 2,
-      timestamp: "2025-01-06 12:15",
-      reason: "Tool Changeover (Setup)",
-      duration: "00:18:34",
-      notes: "Switching from part A to part B",
-      status: "resolved" as const,
-    },
-    {
-      id: 3,
-      timestamp: "2025-01-06 09:42",
-      reason: "Material Shortage",
-      duration: "01:12:08",
-      notes: "Waiting for steel delivery",
-      status: "resolved" as const,
-    },
-    {
-      id: 4,
-      timestamp: "2025-01-06 07:30",
-      reason: "Electrical Maintenance",
-      duration: "00:25:45",
-      notes: "Routine inspection",
-      status: "resolved" as const,
-    },
-    {
-      id: 5,
-      timestamp: "2025-01-05 16:20",
-      reason: "Mechanical Failure",
-      duration: "00:32:15",
-      notes: "Belt adjustment required",
-      status: "resolved" as const,
-    },
-  ];
+  const { data: events, isLoading: eventsLoading } = useQuery<DowntimeEvent[]>({
+    queryKey: ["/api/downtime/events"],
+    refetchInterval: 10000,
+  });
+
+  const formatDuration = (minutes: number): string => {
+    if (minutes < 60) return `${minutes}m`;
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+    return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+  };
+
+  const formatEventDuration = (minutes: number | null): string => {
+    if (minutes === null) return "-";
+    const h = Math.floor(minutes / 60);
+    const m = minutes % 60;
+    const s = 0;
+    return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  };
+
+  const formatTimestamp = (dateStr: string): string => {
+    const date = new Date(dateStr);
+    return date.toLocaleString("en-US", {
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+
+  const totalDuration = byReason?.reduce((sum, item) => sum + item.duration, 0) || 1;
+  const distributionData = byReason?.map((item, index) => ({
+    reason: item.reason,
+    percentage: Math.round((item.duration / totalDuration) * 100),
+    color: CHART_COLORS[index % CHART_COLORS.length],
+  })) || [];
+
+  const tableData = events?.map(event => ({
+    id: event.id,
+    timestamp: formatTimestamp(event.startTime),
+    reason: event.reason,
+    duration: formatEventDuration(event.duration),
+    notes: event.notes || "",
+    status: (event.endTime ? "resolved" : "active") as "active" | "resolved",
+  })) || [];
+
+  const isLoading = statsLoading || reasonLoading || eventsLoading;
 
   return (
     <div className="min-h-screen bg-background p-4 md:p-8">
@@ -73,18 +105,43 @@ export default function DashboardPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <StatCard title="Total Downtime" value="4.2h" icon={Clock} subtitle="Last 24 hours" />
-          <StatCard title="Events Today" value="12" icon={Activity} />
-          <StatCard title="Avg Duration" value="21m" icon={TrendingUp} />
-          <StatCard title="Active Now" value="1" icon={AlertTriangle} />
+          <StatCard
+            title="Total Downtime"
+            value={statistics ? formatDuration(statistics.totalDuration) : "-"}
+            icon={Clock}
+            subtitle="All events"
+          />
+          <StatCard
+            title="Events Total"
+            value={statistics?.eventCount || 0}
+            icon={Activity}
+          />
+          <StatCard
+            title="Avg Duration"
+            value={statistics ? `${statistics.avgDuration}m` : "-"}
+            icon={TrendingUp}
+          />
+          <StatCard
+            title="Active Now"
+            value={statistics?.activeCount || 0}
+            icon={AlertTriangle}
+          />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <DowntimeChart data={chartData} />
-          <DowntimeDistribution data={distributionData} />
-        </div>
+        {!isLoading && byReason && byReason.length > 0 ? (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <DowntimeChart data={byReason} />
+            <DowntimeDistribution data={distributionData} />
+          </div>
+        ) : (
+          <div className="text-center py-12 text-muted-foreground">
+            {isLoading ? "Loading analytics..." : "No downtime events recorded yet"}
+          </div>
+        )}
 
-        <DowntimeEventsTable events={eventsData} />
+        {!eventsLoading && tableData.length > 0 && (
+          <DowntimeEventsTable events={tableData} />
+        )}
       </div>
     </div>
   );

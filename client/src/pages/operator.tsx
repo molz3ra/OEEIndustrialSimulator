@@ -26,11 +26,7 @@ export default function OperatorPage() {
 
   const startDowntimeMutation = useMutation({
     mutationFn: async (data: { reason: string; notes: string }) => {
-      return apiRequest("/api/downtime/start", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
-      });
+      return apiRequest("POST", "/api/downtime/start", data);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/downtime/active"] });
@@ -50,9 +46,7 @@ export default function OperatorPage() {
 
   const endDowntimeMutation = useMutation({
     mutationFn: async (id: number) => {
-      return apiRequest(`/api/downtime/${id}/end`, {
-        method: "POST",
-      });
+      return apiRequest("POST", `/api/downtime/${id}/end`);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/downtime/active"] });

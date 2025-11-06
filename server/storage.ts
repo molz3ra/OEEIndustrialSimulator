@@ -23,6 +23,11 @@ export interface IStorage {
 
 export class DatabaseStorage implements IStorage {
   async createDowntimeEvent(insertEvent: InsertDowntimeEvent): Promise<DowntimeEvent> {
+    const activeEvent = await this.getActiveDowntimeEvent();
+    if (activeEvent) {
+      throw new Error("Cannot start new downtime while another is active");
+    }
+
     const [event] = await db
       .insert(downtimeEvents)
       .values(insertEvent)
@@ -31,7 +36,6 @@ export class DatabaseStorage implements IStorage {
   }
 
   async endDowntimeEvent(id: number): Promise<DowntimeEvent> {
-    const endTime = new Date();
     const [event] = await db
       .select()
       .from(downtimeEvents)
@@ -41,6 +45,11 @@ export class DatabaseStorage implements IStorage {
       throw new Error("Event not found");
     }
 
+    if (event.endTime !== null) {
+      throw new Error("Event already ended");
+    }
+
+    const endTime = new Date();
     const duration = Math.floor((endTime.getTime() - event.startTime.getTime()) / 1000 / 60);
 
     const [updatedEvent] = await db

@@ -11,7 +11,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const event = await storage.createDowntimeEvent(data);
       res.json(event);
     } catch (error: any) {
-      res.status(400).json({ error: error.message });
+      if (error.message === "Cannot start new downtime while another is active") {
+        res.status(409).json({ error: error.message });
+      } else {
+        res.status(400).json({ error: error.message });
+      }
     }
   });
 
@@ -22,7 +26,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const event = await storage.endDowntimeEvent(id);
       res.json(event);
     } catch (error: any) {
-      res.status(400).json({ error: error.message });
+      if (error.message === "Event already ended") {
+        res.status(409).json({ error: error.message });
+      } else {
+        res.status(400).json({ error: error.message });
+      }
     }
   });
 
