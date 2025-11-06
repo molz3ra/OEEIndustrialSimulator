@@ -1,6 +1,3 @@
-Perfeito 😎
-Aqui vai um modelo de **README.md profissional e completo** para o teu projeto **OEE Industrial Simulator**, explicando o propósito e as tecnologias usadas (baseado no que vi no print e nos erros do projeto):
-
 ---
 
 ````markdown
