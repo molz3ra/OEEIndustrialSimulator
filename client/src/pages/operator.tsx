@@ -1,36 +1,88 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { apiRequest, queryClient } from "@/lib/queryClient";
 import StatusButton from "@/components/StatusButton";
 import DowntimeForm from "@/components/DowntimeForm";
 import ActiveDowntimeDisplay from "@/components/ActiveDowntimeDisplay";
+import { useToast } from "@/hooks/use-toast";
+
+type DowntimeEvent = {
+  id: number;
+  reason: string;
+  notes: string;
+  startTime: string;
+  endTime: string | null;
+  duration: number | null;
+};
 
 export default function OperatorPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [activeDowntime, setActiveDowntime] = useState<{
-    startTime: Date;
-    reason: string;
-    notes: string;
-  } | null>(null);
+  const { toast } = useToast();
+
+  const { data: activeEvent, isLoading } = useQuery<DowntimeEvent | null>({
+    queryKey: ["/api/downtime/active"],
+    refetchInterval: 5000,
+  });
+
+  const startDowntimeMutation = useMutation({
+    mutationFn: async (data: { reason: string; notes: string }) => {
+      return apiRequest("/api/downtime/start", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" },
+      });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/downtime/active"] });
+      toast({
+        title: "Downtime Started",
+        description: "Line downtime event has been recorded.",
+      });
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to start downtime event.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const endDowntimeMutation = useMutation({
+    mutationFn: async (id: number) => {
+      return apiRequest(`/api/downtime/${id}/end`, {
+        method: "POST",
+      });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/downtime/active"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/downtime"] });
+      toast({
+        title: "Line Back Up",
+        description: "Downtime event has been resolved.",
+      });
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to end downtime event.",
+        variant: "destructive",
+      });
+    },
+  });
 
   const handleLineDown = () => {
     setIsFormOpen(true);
   };
 
   const handleFormSubmit = (reason: string, notes: string) => {
-    setActiveDowntime({
-      startTime: new Date(),
-      reason,
-      notes,
-    });
+    startDowntimeMutation.mutate({ reason, notes });
     setIsFormOpen(false);
   };
 
   const handleLineUp = () => {
-    if (activeDowntime) {
-      console.log("Line back up, downtime ended:", {
-        ...activeDowntime,
-        endTime: new Date(),
-      });
-      setActiveDowntime(null);
+    if (activeEvent) {
+      endDowntimeMutation.mutate(activeEvent.id);
     }
   };
 
@@ -44,19 +96,27 @@ export default function OperatorPage() {
           </p>
         </div>
 
-        {activeDowntime && (
+        {activeEvent && (
           <ActiveDowntimeDisplay
-            startTime={activeDowntime.startTime}
-            reason={activeDowntime.reason}
-            notes={activeDowntime.notes}
+            startTime={new Date(activeEvent.startTime)}
+            reason={activeEvent.reason}
+            notes={activeEvent.notes || ""}
           />
         )}
 
         <div className="flex flex-col items-center gap-6">
-          {!activeDowntime ? (
-            <StatusButton status="down" onClick={handleLineDown} />
+          {!activeEvent ? (
+            <StatusButton
+              status="down"
+              onClick={handleLineDown}
+              disabled={startDowntimeMutation.isPending || isLoading}
+            />
           ) : (
-            <StatusButton status="up" onClick={handleLineUp} />
+            <StatusButton
+              status="up"
+              onClick={handleLineUp}
+              disabled={endDowntimeMutation.isPending}
+            />
           )}
         </div>
 
