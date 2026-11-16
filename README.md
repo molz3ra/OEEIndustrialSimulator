@@ -1,90 +1,113 @@
+# 🏭 OEE Industrial Simulator v2.0
 
+Sistema profissional de controle de chão de fábrica e análise de eficiência global de equipamentos (**OEE - Overall Equipment Effectiveness**) em tempo real.
+
+Reconstruído do zero com foco em confiabilidade industrial, usabilidade direta para operadores e visão analítica para gestores.
 
 ---
 
-````markdown
-# 🏭 OEE Industrial Simulator
+## 📐 O que é OEE e como é calculado?
 
-OEE Industrial Simulator é uma aplicação **Full Stack** voltada para simular e visualizar a eficiência operacional de máquinas e processos industriais (OEE - Overall Equipment Effectiveness).  
-O sistema oferece uma interface moderna e intuitiva para controle de paradas, cálculo de eficiência e acompanhamento de eventos em tempo real.
+O **OEE** é o padrão internacional para medir a produtividade da manufatura, unindo três pilares fundamentais:
+
+$$\text{OEE} = \text{Disponibilidade} \times \text{Performance} \times \text{Qualidade}$$
+
+1. **Disponibilidade (Availability):**
+   $$\text{Disponibilidade} = \frac{\text{Tempo Real de Operação}}{\text{Tempo Planejado do Turno}}$$
+   *Impactado por paradas mecânicas, elétricas, setups e falta de material.*
+
+2. **Performance:**
+   $$\text{Performance} = \frac{\text{Peças Produzidas} \times \text{Tempo de Ciclo Ideal}}{\text{Tempo Real de Operação}}$$
+   *Impactado por pequenas paradas, velocidade reduzida e micro-interrupções.*
+
+3. **Qualidade (Quality):**
+   $$\text{Qualidade} = \frac{\text{Peças Conformes (Boas)}}{\text{Total de Peças Produzidas}}$$
+   *Impactado por refugos, peças com defeito e retrabalho.*
+
+### 🎯 Faixas de Benchmark Industrial:
+- 🟢 **≥ 85%:** Classe Mundial (*World Class*) — Padrão de excelência
+- 🔵 **70% a 84%:** Típico / Bom — Operação estável
+- 🟡 **50% a 69%:** Abaixo da Média — Oportunidade evidente de melhoria
+- 🔴 **< 50%:** Crítico — Gargalo de produção severo
 
 ---
 
 ## 🚀 Tecnologias Utilizadas
 
-### **Frontend (Client)**
-- ⚛️ **React + TypeScript** – Framework moderno para construção da interface.
-- ⚡ **Vite** – Ferramenta de build ultrarrápida para desenvolvimento React.
-- 🎨 **TailwindCSS** – Framework CSS utilitário para estilização rápida e responsiva.
-- 🧩 **ShadCN/UI** – Biblioteca de componentes moderna e elegante, baseada em Radix UI.
-- 📊 **Recharts** – Biblioteca de gráficos reativa usada para visualização de dados industriais.
-- 🔄 **React Query (TanStack Query)** – Para gerenciamento de estado e sincronização de dados com o backend.
+### Frontend
+- ⚛️ **React 18 + TypeScript 5.7**
+- ⚡ **Vite 5** (Build ultrarrápido)
+- 🗺️ **React Router v7**
+- 🔄 **TanStack Query v5**
+- 📊 **Recharts** (Pareto de perdas e gráficos temporais)
+- 🌐 **i18next** (Suporte bilíngue nativo PT-BR / EN com toggle)
+- 🎨 **TailwindCSS 3 + Radix UI** (Tema industrial de alto contraste)
+
+### Backend
+- 🧠 **Node.js + Express 4 + TypeScript**
+- 🛡️ **Segurança em camadas:** Helmet, CORS restrito, Rate Limiting (`express-rate-limit`)
+- 🔑 **Autenticação:** Sessões seguras (`express-session` + `memorystore`) com hashing `bcryptjs`
+- 🗄️ **Drizzle ORM** com suporte nativo a **Neon PostgreSQL (Serverless)** e fallback em memória automático
+- 🩺 **Health Check endpoint:** `/api/health`
+
+### Testes & Qualidade
+- 🧪 **Vitest 3** + **Supertest** + **React Testing Library**
+- 📦 **Docker + Docker Compose**
+- 🤖 **GitHub Actions CI Pipeline**
 
 ---
 
-### **Backend (Server)**
-- 🧠 **Node.js + Express + TypeScript** – Servidor leve e robusto para lidar com APIs REST.
-- 🗄️ **Drizzle ORM** – ORM moderno e tipado para manipulação segura de dados.
-- 🔌 **Vite Server Integration** – O servidor Express é integrado ao Vite, permitindo desenvolvimento unificado do front e back.
+## 🔑 Credenciais para Teste (Seed Integrado)
+
+O sistema já vem pré-configurado com usuários e dados de linha prontos para uso:
+
+| Perfil | Usuário | Senha | Nível de Permissão |
+|---|---|---|---|
+| **Operador** | `operador` | `operador123` | Registra paradas e produção na linha |
+| **Gerente** | `gerente` | `gerente123` | Acesso completo a dashboards e relatórios |
+| **Administrador**| `admin` | `admin123` | Gestão de máquinas, parâmetros e usuários |
 
 ---
 
-### **Banco de Dados**
-- 🧰 **SQLite / PostgreSQL (via Drizzle)** – Suporte configurável; ideal tanto para desenvolvimento local quanto produção.
-- 🌿 As variáveis de ambiente são controladas pelo `.env` (exemplo em `.env.example`).
+## ⚙️ Como Executar
 
----
+### Pré-requisitos
+- Node.js ≥ 20 LTS
+- npm ≥ 10
 
-## ⚙️ Instalação e Execução
+### 1. Clonar e Instalar
+```bash
+git clone https://github.com/molz3ra/OEEIndustrialSimulator.git
+cd OEEIndustrialSimulator
+npm install
+```
 
-1. **Clonar o repositório**
-   ```bash
-   git clone https://github.com/molz3ra/OEEIndustrialSimulator.git
-   cd OEEIndustrialSimulator
-````
+### 2. Executar em Desenvolvimento
+```bash
+npm run dev
+```
+Acesse a aplicação unificada em: **`http://localhost:5000`**
 
-2. **Instalar dependências**
+### 3. Rodar a Suíte de Testes
+```bash
+npm run test
+```
 
-   ```bash
-   npm install
-   ```
+### 4. Checagem de Tipos TypeScript
+```bash
+npm run check
+```
 
-3. **Configurar variáveis de ambiente**
+### 5. Build de Produção
+```bash
+npm run build
+npm start
+```
 
-   * Crie um arquivo `.env` na raiz e adicione:
-
-     ```env
-     DATABASE_URL="file:./dev.db"
-     NODE_ENV=development
-     ```
-
-4. **Rodar o servidor**
-
-   * No Windows:
-
-     ```bash
-     npx cross-env NODE_ENV=development tsx server/index.ts
-     ```
-   * Ou, se configurado no `package.json`:
-
-     ```bash
-     npm run dev
-     ```
-
-5. **Acessar o projeto**
-
-   * O frontend será servido em [http://localhost:5173](http://localhost:5173)
-   * A API backend roda em [http://localhost:3000](http://localhost:3000) (dependendo da configuração)
-
----
-
-## 📈 Funcionalidades Principais
-
-* Visualização de **eficiência (OEE)** em tempo real.
-* Registro de **paradas de máquina** e suas causas.
-* Análise de **distribuição de paradas** por gráfico.
-* Painel de controle com **indicadores visuais e estatísticas**.
-* Interface moderna e responsiva.
+### 6. Executar via Docker
+```bash
+docker compose up --build
+```
 
 ---
 
@@ -92,44 +115,39 @@ O sistema oferece uma interface moderna e intuitiva para controle de paradas, c�
 
 ```
 OEEIndustrialSimulator/
-├── client/             # Aplicação React (frontend)
+├── client/                      # Frontend SPA React
 │   ├── src/
-│   │   ├── components/ # Componentes e UI
-│   │   ├── pages/      # Páginas principais (Dashboard, Home, etc.)
-│   │   └── lib/        # Utilitários e hooks
-├── server/             # API Express (backend)
-│   ├── db.ts           # Configuração do banco de dados (Drizzle)
-│   ├── routes.ts       # Rotas da API
-│   └── index.ts        # Servidor principal
-├── shared/             # Schemas e tipos compartilhados entre front e back
-├── .env.example        # Exemplo de configuração de ambiente
-├── package.json
-└── vite.config.ts
+│   │   ├── components/
+│   │   │   ├── downtime/        # Botões táteis, timer em tempo real, formulário
+│   │   │   ├── layout/          # Navbar, AppShell, AuthGuard
+│   │   │   ├── oee/             # Gauges circulares SVG, cards de pilares
+│   │   │   └── ui/              # Componentes de interface otimizados
+│   │   ├── hooks/               # useAuth, useToast
+│   │   ├── i18n/                # Dicionários pt-BR e en
+│   │   ├── lib/                 # apiRequest, queryClient, utils
+│   │   ├── pages/               # Login, Operador, Dashboard, Produção, Máquinas
+│   │   └── router.tsx           # Configuração de rotas React Router v7
+├── server/                      # Backend API REST
+│   ├── middleware/              # Auth guard, security headers, rate limit
+│   ├── routes/                  # auth, machines, downtime, production, oee
+│   ├── storage/                 # Camada de persistência (MemStorage e DatabaseStorage)
+│   ├── db.ts                    # Conexão Drizzle / Neon
+│   └── index.ts                 # Bootstrap do Express e servidor unificado
+├── shared/                      # Código compartilhado entre front e back
+│   ├── schema.ts                # Schemas Drizzle + validações Zod
+│   ├── types.ts                 # Tipagens TypeScript compartilhadas
+│   ├── enums.ts                 # Categorias industriais de parada e turnos
+│   └── oee.ts                   # Função pura matemática de cálculo de OEE
+├── tests/                       # Testes automatizados Vitest + Supertest
+│   ├── client/                  # Testes da fórmula matemática e componentes
+│   └── server/                  # Testes de rotas, autenticação e regras de negócio
+├── Dockerfile                   # Build multi-stage para produção
+├── docker-compose.yml           # Orquestração de container
+└── package.json
 ```
 
----
-
-## 🤝 Contribuições
-
-Pull requests são bem-vindos!
-Para grandes mudanças, abra primeiro uma issue para discutir o que você gostaria de alterar.
-
----
-
-## 🧑‍💻 Autor
-
-**Lucas Mol**
-📫 [GitHub](https://github.com/molz3ra)
-📫 [LinkedIn](https://www.linkedin.com/in/mol035)
 ---
 
 ## 🛠️ Licença
 
-Este projeto está sob a licença **MIT** – sinta-se livre para usar, modificar e distribuir.
-
-```
-
----
-
-Quer que eu te monte um **README visual com badges (React, Node, TypeScript, etc.)** pra deixar mais bonito na página do GitHub? Posso adicionar ícones e status também (como “em desenvolvimento”).
-```
+Este projeto está sob a licença **MIT**.

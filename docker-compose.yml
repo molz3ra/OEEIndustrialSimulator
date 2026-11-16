@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  oee-simulator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: oee_industrial_app
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - SESSION_SECRET=docker-production-super-secret-key-32-chars
+      # - DATABASE_URL=postgresql://user:pass@ep-host.aws.neon.tech/neondb?sslmode=require
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

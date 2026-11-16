@@ -1,0 +1,210 @@
+- generic:
+  - generic [aria-hidden]:
+    - generic:
+      - banner:
+        - generic:
+          - generic:
+            - link:
+              - /url: /operador
+              - generic: OEE
+              - generic: SIMULATOR
+            - generic:
+              - combobox:
+                - generic: Torno CNC Haas ST-20
+          - navigation:
+            - link:
+              - /url: /operador
+              - button: Operação de Linha
+            - link:
+              - /url: /dashboard
+              - button: Dashboard OEE
+            - link:
+              - /url: /producao
+              - button: Registro de Produção
+          - generic:
+            - button [expanded]
+            - generic:
+              - generic:
+                - generic: Lucas Operador
+                - generic: operator
+              - button
+      - main:
+        - generic:
+          - generic:
+            - heading [level=1]: Apontamento de Produção
+            - paragraph: Registre o volume produzido e itens com defeito para o cálculo de OEE
+          - generic:
+            - generic:
+              - generic:
+                - heading [level=3]: Registrar Produção do Turno
+                - paragraph: Preencha os valores contados ao final do turno de fabricação
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - text: Máquina
+                      - combobox:
+                        - generic: CNC-01 - Torno CNC Haas ST-20
+                      - combobox [aria-hidden]
+                    - generic:
+                      - text: Data
+                      - textbox: 2026-11-16
+                    - generic:
+                      - text: Turno
+                      - combobox:
+                        - generic: Manhã (1º Turno)
+                      - combobox [aria-hidden]
+                  - generic:
+                    - generic:
+                      - text: Meta Planejada
+                      - spinbutton: "450"
+                    - generic:
+                      - text: Total Produzido
+                      - spinbutton: "420"
+                    - generic:
+                      - text: Peças Boas (Conformes)
+                      - spinbutton: "405"
+                    - generic:
+                      - text: Peças com Defeito (Refugo)
+                      - spinbutton: "15"
+                  - generic:
+                    - generic:
+                      - text: Tempo Planejado (minutos)
+                      - spinbutton: "480"
+                    - generic:
+                      - text: Tempo Operando (minutos)
+                      - spinbutton: "430"
+                  - generic:
+                    - button: Salvar
+            - generic:
+              - generic:
+                - heading [level=3]: OEE Calculado Deste Turno
+                - paragraph: Cálculo instantâneo baseado nas quantidades preenchidas
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: OEE Geral
+                      - generic: 63.3%
+                  - generic: Abaixo da Média
+                - generic:
+                  - generic:
+                    - generic: "Disponibilidade:"
+                    - generic: 89.6%
+                  - generic:
+                    - generic: "Performance:"
+                    - generic: 73.3%
+                  - generic:
+                    - generic: "Qualidade:"
+                    - generic: 96.4%
+          - generic:
+            - generic:
+              - heading [level=3]: Histórico Recente de Apontamentos
+            - generic:
+              - generic:
+                - table:
+                  - rowgroup:
+                    - row:
+                      - columnheader: Data
+                      - columnheader: Turno
+                      - columnheader: Produzidas
+                      - columnheader: Boas / Refugo
+                      - columnheader: Tempo Real
+                      - columnheader: D / P / Q
+                      - columnheader: OEE Geral
+                  - rowgroup:
+                    - row:
+                      - cell: 2026-11-16
+                      - cell: morning
+                      - cell: 582 / 450
+                      - cell: 570 / 12
+                      - cell: 453m
+                      - cell: 94.4% | 96.4% | 97.9%
+                      - cell:
+                        - generic: 89.1%
+                    - row:
+                      - cell: 2026-11-16
+                      - cell: afternoon
+                      - cell: 518 / 450
+                      - cell: 509 / 9
+                      - cell: 427m
+                      - cell: 89.0% | 91.0% | 98.3%
+                      - cell:
+                        - generic: 79.5%
+                    - row:
+                      - cell: 2026-11-15
+                      - cell: morning
+                      - cell: 501 / 450
+                      - cell: 479 / 22
+                      - cell: 441m
+                      - cell: 91.9% | 85.2% | 95.6%
+                      - cell:
+                        - generic: 74.8%
+                    - row:
+                      - cell: 2026-11-15
+                      - cell: afternoon
+                      - cell: 561 / 450
+                      - cell: 538 / 23
+                      - cell: 459m
+                      - cell: 95.6% | 91.7% | 95.9%
+                      - cell:
+                        - generic: 84.1%
+                    - row:
+                      - cell: 2026-11-14
+                      - cell: morning
+                      - cell: 517 / 450
+                      - cell: 492 / 25
+                      - cell: 441m
+                      - cell: 91.9% | 87.9% | 95.2%
+                      - cell:
+                        - generic: 76.9%
+                    - row:
+                      - cell: 2026-11-14
+                      - cell: afternoon
+                      - cell: 537 / 450
+                      - cell: 519 / 18
+                      - cell: 426m
+                      - cell: 88.8% | 94.5% | 96.7%
+                      - cell:
+                        - generic: 81.1%
+                    - row:
+                      - cell: 2026-11-13
+                      - cell: morning
+                      - cell: 550 / 450
+                      - cell: 538 / 12
+                      - cell: 457m
+                      - cell: 95.2% | 90.3% | 97.8%
+                      - cell:
+                        - generic: 84.1%
+                    - row:
+                      - cell: 2026-11-13
+                      - cell: afternoon
+                      - cell: 577 / 450
+                      - cell: 571 / 6
+                      - cell: 455m
+                      - cell: 94.8% | 95.1% | 99.0%
+                      - cell:
+                        - generic: 89.2%
+                    - row:
+                      - cell: 2026-11-12
+                      - cell: morning
+                      - cell: 545 / 450
+                      - cell: 519 / 26
+                      - cell: 432m
+                      - cell: 90.0% | 94.6% | 95.2%
+                      - cell:
+                        - generic: 81.1%
+                    - row:
+                      - cell: 2026-11-12
+                      - cell: afternoon
+                      - cell: 533 / 450
+                      - cell: 527 / 6
+                      - cell: 426m
+                      - cell: 88.8% | 93.8% | 98.9%
+                      - cell:
+                        - generic: 82.3%
+    - list
+  - generic [aria-hidden]: "25"
+  - menu [active] [ref=f3e583]:
+    - menuitem "Português (BR)" [ref=f3e584]
+    - menuitem "English (US)" [ref=f3e585]

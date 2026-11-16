@@ -1,0 +1,191 @@
+- generic [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - generic [ref=f3e31]:
+      - banner [ref=f3e32]:
+        - generic [ref=f3e33]:
+          - generic [ref=f3e34]:
+            - link "OEE SIMULATOR" [ref=f3e35] [cursor=pointer]:
+              - /url: /operador
+              - generic [ref=f3e36]: OEE
+              - generic [ref=f3e37]: SIMULATOR
+            - combobox [ref=f3e39] [cursor=pointer]:
+              - generic: Torno CNC Haas ST-20
+          - navigation [ref=f3e42]:
+            - link [ref=f3e43] [cursor=pointer]:
+              - /url: /operador
+              - button "Operação de Linha" [ref=f3e44]
+            - link [ref=f3e47] [cursor=pointer]:
+              - /url: /dashboard
+              - button "Dashboard OEE" [ref=f3e48]
+            - link [ref=f3e51] [cursor=pointer]:
+              - /url: /producao
+              - button "Registro de Produção" [active] [ref=f3e52]
+          - generic [ref=f3e56]:
+            - button [ref=f3e57] [cursor=pointer]
+            - generic [ref=f3e61]:
+              - generic [ref=f3e62]:
+                - generic [ref=f3e63]: Lucas Operador
+                - generic [ref=f3e64]: operator
+              - button "Sair" [ref=f3e65] [cursor=pointer]
+      - main [ref=f3e69]:
+        - generic [ref=f3e408]:
+          - generic [ref=f3e409]:
+            - heading "Apontamento de Produção" [level=1] [ref=f3e410]
+            - paragraph [ref=f3e411]: Registre o volume produzido e itens com defeito para o cálculo de OEE
+          - generic [ref=f3e412]:
+            - generic [ref=f3e413]:
+              - generic [ref=f3e414]:
+                - heading "Registrar Produção do Turno" [level=3] [ref=f3e415]
+                - paragraph [ref=f3e419]: Preencha os valores contados ao final do turno de fabricação
+              - generic [ref=f3e421]:
+                - generic [ref=f3e422]:
+                  - generic [ref=f3e423]:
+                    - text: Máquina
+                    - combobox [ref=f3e424] [cursor=pointer]:
+                      - generic: CNC-01 - Torno CNC Haas ST-20
+                    - combobox [aria-hidden] [ref=f3e427]
+                  - generic [ref=f3e428]:
+                    - text: Data
+                    - textbox [ref=f3e429]: 2026-11-16
+                  - generic [ref=f3e430]:
+                    - text: Turno
+                    - combobox [ref=f3e431] [cursor=pointer]:
+                      - generic: Manhã (1º Turno)
+                    - combobox [aria-hidden] [ref=f3e434]
+                - generic [ref=f3e435]:
+                  - generic [ref=f3e436]:
+                    - text: Meta Planejada
+                    - spinbutton [ref=f3e437]: "450"
+                  - generic [ref=f3e438]:
+                    - text: Total Produzido
+                    - spinbutton [ref=f3e439]: "420"
+                  - generic [ref=f3e440]:
+                    - text: Peças Boas (Conformes)
+                    - spinbutton [ref=f3e441]: "405"
+                  - generic [ref=f3e442]:
+                    - text: Peças com Defeito (Refugo)
+                    - spinbutton [ref=f3e443]: "15"
+                - generic [ref=f3e444]:
+                  - generic [ref=f3e445]:
+                    - text: Tempo Planejado (minutos)
+                    - spinbutton [ref=f3e446]: "480"
+                  - generic [ref=f3e447]:
+                    - text: Tempo Operando (minutos)
+                    - spinbutton [ref=f3e448]: "430"
+                - button "Salvar" [ref=f3e450] [cursor=pointer]
+            - generic [ref=f3e453]:
+              - generic [ref=f3e454]:
+                - heading "OEE Calculado Deste Turno" [level=3] [ref=f3e455]
+                - paragraph [ref=f3e456]: Cálculo instantâneo baseado nas quantidades preenchidas
+              - generic [ref=f3e457]:
+                - generic [ref=f3e458]:
+                  - generic [ref=f3e463]:
+                    - generic [ref=f3e464]: OEE Geral
+                    - generic [ref=f3e465]: 63.3%
+                  - generic [ref=f3e466]: Abaixo da Média
+                - generic [ref=f3e467]:
+                  - generic [ref=f3e468]:
+                    - generic [ref=f3e469]: "Disponibilidade:"
+                    - generic [ref=f3e470]: 89.6%
+                  - generic [ref=f3e471]:
+                    - generic [ref=f3e472]: "Performance:"
+                    - generic [ref=f3e473]: 73.3%
+                  - generic [ref=f3e474]:
+                    - generic [ref=f3e475]: "Qualidade:"
+                    - generic [ref=f3e476]: 96.4%
+          - generic [ref=f3e477]:
+            - heading "Histórico Recente de Apontamentos" [level=3] [ref=f3e479]
+            - table [ref=f3e482]:
+              - rowgroup [ref=f3e483]:
+                - row [ref=f3e484]:
+                  - columnheader "Data" [ref=f3e485]
+                  - columnheader "Turno" [ref=f3e486]
+                  - columnheader "Produzidas" [ref=f3e487]
+                  - columnheader "Boas / Refugo" [ref=f3e488]
+                  - columnheader "Tempo Real" [ref=f3e489]
+                  - columnheader "D / P / Q" [ref=f3e490]
+                  - columnheader "OEE Geral" [ref=f3e491]
+              - rowgroup [ref=f3e492]:
+                - row [ref=f3e493]:
+                  - cell "2026-11-16" [ref=f3e494]
+                  - cell "morning" [ref=f3e495]
+                  - cell "582 / 450" [ref=f3e496]
+                  - cell "570 / 12" [ref=f3e497]
+                  - cell "453m" [ref=f3e498]
+                  - cell "94.4% | 96.4% | 97.9%" [ref=f3e499]
+                  - cell "89.1%" [ref=f3e500]
+                - row [ref=f3e502]:
+                  - cell "2026-11-16" [ref=f3e503]
+                  - cell "afternoon" [ref=f3e504]
+                  - cell "518 / 450" [ref=f3e505]
+                  - cell "509 / 9" [ref=f3e506]
+                  - cell "427m" [ref=f3e507]
+                  - cell "89.0% | 91.0% | 98.3%" [ref=f3e508]
+                  - cell "79.5%" [ref=f3e509]
+                - row [ref=f3e511]:
+                  - cell "2026-11-15" [ref=f3e512]
+                  - cell "morning" [ref=f3e513]
+                  - cell "501 / 450" [ref=f3e514]
+                  - cell "479 / 22" [ref=f3e515]
+                  - cell "441m" [ref=f3e516]
+                  - cell "91.9% | 85.2% | 95.6%" [ref=f3e517]
+                  - cell "74.8%" [ref=f3e518]
+                - row [ref=f3e520]:
+                  - cell "2026-11-15" [ref=f3e521]
+                  - cell "afternoon" [ref=f3e522]
+                  - cell "561 / 450" [ref=f3e523]
+                  - cell "538 / 23" [ref=f3e524]
+                  - cell "459m" [ref=f3e525]
+                  - cell "95.6% | 91.7% | 95.9%" [ref=f3e526]
+                  - cell "84.1%" [ref=f3e527]
+                - row [ref=f3e529]:
+                  - cell "2026-11-14" [ref=f3e530]
+                  - cell "morning" [ref=f3e531]
+                  - cell "517 / 450" [ref=f3e532]
+                  - cell "492 / 25" [ref=f3e533]
+                  - cell "441m" [ref=f3e534]
+                  - cell "91.9% | 87.9% | 95.2%" [ref=f3e535]
+                  - cell "76.9%" [ref=f3e536]
+                - row [ref=f3e538]:
+                  - cell "2026-11-14" [ref=f3e539]
+                  - cell "afternoon" [ref=f3e540]
+                  - cell "537 / 450" [ref=f3e541]
+                  - cell "519 / 18" [ref=f3e542]
+                  - cell "426m" [ref=f3e543]
+                  - cell "88.8% | 94.5% | 96.7%" [ref=f3e544]
+                  - cell "81.1%" [ref=f3e545]
+                - row [ref=f3e547]:
+                  - cell "2026-11-13" [ref=f3e548]
+                  - cell "morning" [ref=f3e549]
+                  - cell "550 / 450" [ref=f3e550]
+                  - cell "538 / 12" [ref=f3e551]
+                  - cell "457m" [ref=f3e552]
+                  - cell "95.2% | 90.3% | 97.8%" [ref=f3e553]
+                  - cell "84.1%" [ref=f3e554]
+                - row [ref=f3e556]:
+                  - cell "2026-11-13" [ref=f3e557]
+                  - cell "afternoon" [ref=f3e558]
+                  - cell "577 / 450" [ref=f3e559]
+                  - cell "571 / 6" [ref=f3e560]
+                  - cell "455m" [ref=f3e561]
+                  - cell "94.8% | 95.1% | 99.0%" [ref=f3e562]
+                  - cell "89.2%" [ref=f3e563]
+                - row [ref=f3e565]:
+                  - cell "2026-11-12" [ref=f3e566]
+                  - cell "morning" [ref=f3e567]
+                  - cell "545 / 450" [ref=f3e568]
+                  - cell "519 / 26" [ref=f3e569]
+                  - cell "432m" [ref=f3e570]
+                  - cell "90.0% | 94.6% | 95.2%" [ref=f3e571]
+                  - cell "81.1%" [ref=f3e572]
+                - row [ref=f3e574]:
+                  - cell "2026-11-12" [ref=f3e575]
+                  - cell "afternoon" [ref=f3e576]
+                  - cell "533 / 450" [ref=f3e577]
+                  - cell "527 / 6" [ref=f3e578]
+                  - cell "426m" [ref=f3e579]
+                  - cell "88.8% | 93.8% | 98.9%" [ref=f3e580]
+                  - cell "82.3%" [ref=f3e581]
+    - region "Notifications (F8)":
+      - list
+  - generic [aria-hidden] [ref=f3e407]: "25"

@@ -1,0 +1,166 @@
+- generic [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - generic [ref=f3e31]:
+      - banner [ref=f3e32]:
+        - generic [ref=f3e33]:
+          - generic [ref=f3e34]:
+            - link "OEE SIMULATOR" [ref=f3e35] [cursor=pointer]:
+              - /url: /operador
+              - generic [ref=f3e36]: OEE
+              - generic [ref=f3e37]: SIMULATOR
+            - combobox [ref=f3e39] [cursor=pointer]:
+              - generic: Torno CNC Haas ST-20
+          - navigation [ref=f3e42]:
+            - link [ref=f3e43] [cursor=pointer]:
+              - /url: /operador
+              - button "Operação de Linha" [ref=f3e44]
+            - link [ref=f3e47] [cursor=pointer]:
+              - /url: /dashboard
+              - button "Dashboard OEE" [active] [ref=f3e48]
+            - link [ref=f3e51] [cursor=pointer]:
+              - /url: /producao
+              - button "Registro de Produção" [ref=f3e52]
+          - generic [ref=f3e56]:
+            - button [ref=f3e57] [cursor=pointer]
+            - generic [ref=f3e61]:
+              - generic [ref=f3e62]:
+                - generic [ref=f3e63]: Lucas Operador
+                - generic [ref=f3e64]: operator
+              - button "Sair" [ref=f3e65] [cursor=pointer]
+      - main [ref=f3e69]:
+        - generic [ref=f3e168]:
+          - generic [ref=f3e169]:
+            - generic [ref=f3e170]:
+              - heading "Dashboard Gerencial OEE" [level=1] [ref=f3e171]
+              - paragraph [ref=f3e172]: Visão geral em tempo real de eficiência, perdas e paradas
+            - combobox [ref=f3e175] [cursor=pointer]:
+              - generic: Todas as Máquinas
+          - generic [ref=f3e178]:
+            - generic [ref=f3e180] [cursor=pointer]:
+              - generic [ref=f3e181]:
+                - generic [ref=f3e182]:
+                  - generic [ref=f3e183]: CNC-01
+                  - generic [ref=f3e184]: running
+                - heading "Torno CNC Haas ST-20" [level=4] [ref=f3e185]
+                - paragraph [ref=f3e186]: "Perdas hoje: 35m"
+              - generic [ref=f3e193]:
+                - generic [ref=f3e194]: OEE Geral
+                - generic [ref=f3e195]: 89.1%
+            - generic [ref=f3e197] [cursor=pointer]:
+              - generic [ref=f3e198]:
+                - generic [ref=f3e199]:
+                  - generic [ref=f3e200]: CNC-02
+                  - generic [ref=f3e201]: stopped
+                - heading "Centro de Usinagem Romi D800" [level=4] [ref=f3e202]
+                - paragraph [ref=f3e203]: "Perdas hoje: 50m"
+              - generic [ref=f3e210]:
+                - generic [ref=f3e211]: OEE Geral
+                - generic [ref=f3e212]: 80.2%
+            - generic [ref=f3e214] [cursor=pointer]:
+              - generic [ref=f3e215]:
+                - generic [ref=f3e216]:
+                  - generic [ref=f3e217]: PRS-03
+                  - generic [ref=f3e218]: running
+                - heading "Prensa Hidráulica 200T" [level=4] [ref=f3e219]
+                - paragraph [ref=f3e220]: "Perdas hoje: 0m"
+              - generic [ref=f3e227]:
+                - generic [ref=f3e228]: OEE Geral
+                - generic [ref=f3e229]: 80.8%
+          - generic [ref=f3e230]:
+            - generic [ref=f3e231]:
+              - generic [ref=f3e232]: Tempo Total Parado
+              - generic [ref=f3e237]: 1h 25m
+              - text: Período acumulado
+            - generic [ref=f3e238]:
+              - generic [ref=f3e239]: Eventos de Parada
+              - generic [ref=f3e243]: "3"
+              - text: Ocorrências registradas
+            - generic [ref=f3e244]:
+              - generic [ref=f3e245]: Duração Média
+              - generic [ref=f3e250]: 43m
+              - text: Tempo médio por parada
+            - generic [ref=f3e251]:
+              - generic [ref=f3e252]: Máquinas Paradas
+              - generic [ref=f3e256]: "1"
+              - text: Máquinas paradas agora
+          - generic [ref=f3e257]:
+            - generic [ref=f3e258]:
+              - generic [ref=f3e260]:
+                - heading "Pareto de Perdas por Motivo" [level=3] [ref=f3e261]
+                - generic [ref=f3e264]: Minutos Parados
+              - img [ref=f3e269]:
+                - generic [ref=f3e271]:
+                  - generic [ref=f3e272]: "0"
+                  - generic [ref=f3e274]: "15"
+                  - generic [ref=f3e276]: "30"
+                  - generic [ref=f3e278]: "45"
+                  - generic [ref=f3e280]: "60"
+                - generic [ref=f3e283]:
+                  - generic [ref=f3e284]: Falha Mecânica
+                  - generic [ref=f3e286]: Troca deFerrament...
+            - generic [ref=f3e288]:
+              - generic [ref=f3e290]:
+                - heading "Tendência de OEE (Últimos Dias)" [level=3] [ref=f3e291]
+                - generic [ref=f3e295]: OEE Geral vs 3 Pilares (%)
+              - generic [ref=f3e299]:
+                - img [ref=f3e300]:
+                  - generic [ref=f3e305]:
+                    - generic [ref=f3e306]: 11-12 (M)
+                    - generic [ref=f3e308]: 11-12 (A)
+                    - generic [ref=f3e310]: 11-13 (M)
+                    - generic [ref=f3e312]: 11-13 (A)
+                    - generic [ref=f3e314]: 11-14 (M)
+                    - generic [ref=f3e316]: 11-14 (A)
+                    - generic [ref=f3e318]: 11-15 (M)
+                    - generic [ref=f3e320]: 11-15 (A)
+                    - generic [ref=f3e322]: 11-16 (M)
+                    - generic [ref=f3e324]: 11-16 (A)
+                  - generic [ref=f3e327]:
+                    - generic [ref=f3e328]: "0"
+                    - generic [ref=f3e330]: "25"
+                    - generic [ref=f3e332]: "50"
+                    - generic [ref=f3e334]: "75"
+                    - generic [ref=f3e336]: "100"
+                - list [ref=f3e347]:
+                  - listitem [ref=f3e348]: OEE Geral
+                  - listitem [ref=f3e351]: Disponibilidade
+                  - listitem [ref=f3e354]: Performance
+                  - listitem [ref=f3e357]: Qualidade
+          - generic [ref=f3e360]:
+            - generic [ref=f3e361]:
+              - heading "Histórico Recente de Paradas" [level=3] [ref=f3e362]
+              - generic [ref=f3e367]: 3 eventos nesta página
+            - table [ref=f3e370]:
+              - rowgroup [ref=f3e371]:
+                - row [ref=f3e372]:
+                  - columnheader "Início" [ref=f3e373]
+                  - columnheader "Máquina" [ref=f3e374]
+                  - columnheader "Motivo" [ref=f3e375]
+                  - columnheader "Duração" [ref=f3e376]
+                  - columnheader "Observações" [ref=f3e377]
+                  - columnheader "Status" [ref=f3e378]
+              - rowgroup [ref=f3e379]:
+                - row [ref=f3e380]:
+                  - cell "16/11, 18:39" [ref=f3e381]
+                  - cell "CNC-02 - Centro de Usinagem Romi D800" [ref=f3e382]
+                  - cell "Falta de Material / Insumos" [ref=f3e383]
+                  - cell "Em andamento" [ref=f3e385]
+                  - cell "Aguardando lote de tarugos de aço 1045" [ref=f3e386]
+                  - cell "PARADA" [ref=f3e387]
+                - row [ref=f3e389]:
+                  - cell "16/11, 16:54" [ref=f3e390]
+                  - cell "CNC-02 - Centro de Usinagem Romi D800" [ref=f3e391]
+                  - cell "Falha Mecânica" [ref=f3e392]
+                  - cell "50m" [ref=f3e394]
+                  - cell "Superaquecimento do fuso principal" [ref=f3e395]
+                  - cell "RESOLVIDA" [ref=f3e396]
+                - row [ref=f3e398]:
+                  - cell "16/11, 14:54" [ref=f3e399]
+                  - cell "CNC-01 - Torno CNC Haas ST-20" [ref=f3e400]
+                  - cell "Troca de Ferramenta (Setup)" [ref=f3e401]
+                  - cell "35m" [ref=f3e403]
+                  - cell "Troca de pastilhas de corte e zeramento" [ref=f3e404]
+                  - cell "RESOLVIDA" [ref=f3e405]
+    - region "Notifications (F8)":
+      - list
+  - generic [aria-hidden] [ref=f3e407]: "25"

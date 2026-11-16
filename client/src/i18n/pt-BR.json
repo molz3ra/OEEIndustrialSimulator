@@ -1,0 +1,118 @@
+{
+  "common": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "confirm": "Confirmar",
+    "back": "Voltar",
+    "actions": "Ações",
+    "status": "Status",
+    "notes": "Observações",
+    "date": "Data",
+    "shift": "Turno",
+    "machine": "Máquina",
+    "all": "Todas",
+    "none": "Nenhuma",
+    "page": "Página",
+    "of": "de"
+  },
+  "auth": {
+    "login": "Entrar",
+    "logout": "Sair",
+    "username": "Usuário",
+    "password": "Senha",
+    "loginTitle": "Acesso Industrial OEE",
+    "loginSubtitle": "Controle de linha de produção e análise de perdas",
+    "demoCredentials": "Credenciais para teste: operador / operador123 ou gerente / gerente123",
+    "loggingIn": "Entrando..."
+  },
+  "nav": {
+    "operator": "Operação de Linha",
+    "dashboard": "Dashboard OEE",
+    "machines": "Parque de Máquinas",
+    "production": "Registro de Produção",
+    "language": "Idioma"
+  },
+  "operator": {
+    "title": "Painel do Operador",
+    "selectMachine": "Selecione a Máquina da Linha",
+    "lineDown": "REGISTRAR PARADA",
+    "lineUp": "FINALIZAR PARADA / RETOMAR",
+    "activeDowntime": "PARADA EM ANDAMENTO",
+    "reportDowntime": "Registrar Parada de Linha",
+    "downtimeReason": "Motivo da Interrupção",
+    "reasonPlaceholder": "Selecione o motivo da parada...",
+    "startDowntime": "Confirmar Parada",
+    "downtimeStartedToast": "Parada iniciada com sucesso",
+    "downtimeEndedToast": "Linha retomada! Parada computada.",
+    "selectMachinePrompt": "Selecione uma máquina no seletor acima para iniciar o controle",
+    "cycleTimeLabel": "Tempo Ciclo Ideal",
+    "shiftTargetLabel": "Meta do Turno",
+    "units": "peças"
+  },
+  "downtime": {
+    "reasons": {
+      "mechanical_failure": "Falha Mecânica",
+      "electrical_failure": "Falha Elétrica",
+      "material_shortage": "Falta de Material / Insumos",
+      "tool_changeover": "Troca de Ferramenta (Setup)",
+      "planned_maintenance": "Manutenção Preventiva",
+      "quality_issue": "Problema de Qualidade / Ajuste",
+      "operator_absence": "Pausa / Ausência do Operador",
+      "other": "Outros Motivos"
+    }
+  },
+  "oee": {
+    "title": "Eficiência Global do Equipamento (OEE)",
+    "availability": "Disponibilidade",
+    "performance": "Performance",
+    "quality": "Qualidade",
+    "overall": "OEE Geral",
+    "formula": "Disponibilidade × Performance × Qualidade"
+  },
+  "dashboard": {
+    "title": "Dashboard Gerencial OEE",
+    "subtitle": "Visão geral em tempo real de eficiência, perdas e paradas",
+    "totalDowntime": "Tempo Total Parado",
+    "totalEvents": "Eventos de Parada",
+    "avgDuration": "Duração Média",
+    "activeNow": "Máquinas Paradas",
+    "topReasons": "Pareto de Perdas por Motivo",
+    "distribution": "Distribuição de Paradas",
+    "recentEvents": "Histórico Recente de Paradas",
+    "allMachines": "Todas as Máquinas",
+    "filterByMachine": "Filtrar por Máquina",
+    "oeeTrend": "Tendência de OEE (Últimos Dias)",
+    "worldClass": "Classe Mundial (≥ 85%)",
+    "acceptable": "Típico (70% - 84%)",
+    "critical": "Atenção (< 70%)",
+    "duration": "Duração",
+    "reason": "Motivo",
+    "timestamp": "Início"
+  },
+  "production": {
+    "title": "Apontamento de Produção",
+    "subtitle": "Registre o volume produzido e itens com defeito para o cálculo de OEE",
+    "recordProduction": "Registrar Produção do Turno",
+    "plannedQuantity": "Meta Planejada",
+    "producedQuantity": "Total Produzido",
+    "goodQuantity": "Peças Boas (Conformes)",
+    "defectiveQuantity": "Peças com Defeito (Refugo)",
+    "plannedTimeMinutes": "Tempo Planejado (minutos)",
+    "actualRunTimeMinutes": "Tempo Operando (minutos)",
+    "calculatedOEE": "OEE Calculado Deste Turno",
+    "savedToast": "Apontamento de produção salvo com sucesso!"
+  },
+  "machines": {
+    "title": "Gerenciamento de Máquinas",
+    "subtitle": "Cadastro técnico das máquinas e parâmetros de produção",
+    "newMachine": "Nova Máquina",
+    "name": "Nome da Máquina",
+    "code": "Código / Tag",
+    "idealCycle": "Ciclo Ideal (segundos)",
+    "shiftTarget": "Meta por Turno (unidades)",
+    "status": "Status Atual"
+  }
+}

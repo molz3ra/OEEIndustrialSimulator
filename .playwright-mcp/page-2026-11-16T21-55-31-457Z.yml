@@ -1,0 +1,203 @@
+- generic [ref=f3e1]:
+  - generic [aria-hidden] [ref=f3e2]:
+    - generic [ref=f3e31]:
+      - banner [ref=f3e32]:
+        - generic [ref=f3e33]:
+          - generic [ref=f3e34]:
+            - link [ref=f3e586] [cursor=pointer]:
+              - /url: /operador
+              - generic [ref=f3e36]: OEE
+              - generic [ref=f3e37]: SIMULATOR
+            - combobox [ref=f3e39] [cursor=pointer]:
+              - generic: Torno CNC Haas ST-20
+          - navigation [ref=f3e42]:
+            - link [ref=f3e587] [cursor=pointer]:
+              - /url: /operador
+              - button [ref=f3e588]: Line Operation
+            - link [ref=f3e589] [cursor=pointer]:
+              - /url: /dashboard
+              - button [ref=f3e590]: OEE Dashboard
+            - link [ref=f3e591] [cursor=pointer]:
+              - /url: /producao
+              - button [ref=f3e592]: Production Log
+          - generic [ref=f3e56]:
+            - button [ref=f3e57] [cursor=pointer]
+            - generic [ref=f3e61]:
+              - generic [ref=f3e62]:
+                - generic [ref=f3e63]: Lucas Operador
+                - generic [ref=f3e64]: operator
+              - button [ref=f3e593] [cursor=pointer]
+      - main [ref=f3e69]:
+        - generic [ref=f3e408]:
+          - generic [ref=f3e409]:
+            - heading [level=1] [ref=f3e594]: Shift Production Entry
+            - paragraph [ref=f3e411]: Enter produced volume and scrap parts for OEE computation
+          - generic [ref=f3e412]:
+            - generic [ref=f3e413]:
+              - generic [ref=f3e414]:
+                - heading [level=3] [ref=f3e595]: Log Shift Production
+                - paragraph [ref=f3e419]: Preencha os valores contados ao final do turno de fabricação
+              - generic [ref=f3e421]:
+                - generic [ref=f3e422]:
+                  - generic [ref=f3e423]:
+                    - text: Machine
+                    - combobox [ref=f3e424] [cursor=pointer]:
+                      - generic: CNC-01 - Torno CNC Haas ST-20
+                    - combobox [aria-hidden] [ref=f3e427]
+                  - generic [ref=f3e428]:
+                    - text: Date
+                    - textbox [ref=f3e429]: 2026-11-16
+                  - generic [ref=f3e430]:
+                    - text: Shift
+                    - combobox [ref=f3e431] [cursor=pointer]:
+                      - generic: Manhã (1º Turno)
+                    - combobox [aria-hidden] [ref=f3e434]
+                - generic [ref=f3e435]:
+                  - generic [ref=f3e436]:
+                    - text: Planned Target
+                    - spinbutton [ref=f3e437]: "450"
+                  - generic [ref=f3e438]:
+                    - text: Total Produced
+                    - spinbutton [ref=f3e439]: "420"
+                  - generic [ref=f3e440]:
+                    - text: Good Units (Conforming)
+                    - spinbutton [ref=f3e441]: "405"
+                  - generic [ref=f3e442]:
+                    - text: Scrap / Defective Units
+                    - spinbutton [ref=f3e443]: "15"
+                - generic [ref=f3e444]:
+                  - generic [ref=f3e445]:
+                    - text: Planned Time (minutes)
+                    - spinbutton [ref=f3e446]: "480"
+                  - generic [ref=f3e447]:
+                    - text: Operating Time (minutes)
+                    - spinbutton [ref=f3e448]: "430"
+                - button [ref=f3e596] [cursor=pointer]: Save
+            - generic [ref=f3e453]:
+              - generic [ref=f3e454]:
+                - heading [level=3] [ref=f3e597]: Calculated Shift OEE
+                - paragraph [ref=f3e456]: Cálculo instantâneo baseado nas quantidades preenchidas
+              - generic [ref=f3e457]:
+                - generic [ref=f3e458]:
+                  - generic [ref=f3e463]:
+                    - generic [ref=f3e464]: OEE Geral
+                    - generic [ref=f3e465]: 63.3%
+                  - generic [ref=f3e466]: Below Average
+                - generic [ref=f3e467]:
+                  - generic [ref=f3e468]:
+                    - generic [ref=f3e469]: "Availability:"
+                    - generic [ref=f3e470]: 89.6%
+                  - generic [ref=f3e471]:
+                    - generic [ref=f3e472]: "Performance:"
+                    - generic [ref=f3e473]: 73.3%
+                  - generic [ref=f3e474]:
+                    - generic [ref=f3e475]: "Quality:"
+                    - generic [ref=f3e476]: 96.4%
+          - generic [ref=f3e477]:
+            - heading [level=3] [ref=f3e598]: Histórico Recente de Apontamentos
+            - table [ref=f3e482]:
+              - rowgroup [ref=f3e483]:
+                - row [ref=f3e599]:
+                  - columnheader [ref=f3e600]: Date
+                  - columnheader [ref=f3e601]: Shift
+                  - columnheader [ref=f3e602]: Produzidas
+                  - columnheader [ref=f3e603]: Boas / Refugo
+                  - columnheader [ref=f3e604]: Tempo Real
+                  - columnheader [ref=f3e605]: D / P / Q
+                  - columnheader [ref=f3e606]: OEE Geral
+              - rowgroup [ref=f3e492]:
+                - row [ref=f3e607]:
+                  - cell [ref=f3e608]: 2026-11-16
+                  - cell [ref=f3e609]: morning
+                  - cell [ref=f3e610]: 582 / 450
+                  - cell [ref=f3e611]: 570 / 12
+                  - cell [ref=f3e612]: 453m
+                  - cell [ref=f3e613]: 94.4% | 96.4% | 97.9%
+                  - cell [ref=f3e614]:
+                    - generic [ref=f3e501]: 89.1%
+                - row [ref=f3e615]:
+                  - cell [ref=f3e616]: 2026-11-16
+                  - cell [ref=f3e617]: afternoon
+                  - cell [ref=f3e618]: 518 / 450
+                  - cell [ref=f3e619]: 509 / 9
+                  - cell [ref=f3e620]: 427m
+                  - cell [ref=f3e621]: 89.0% | 91.0% | 98.3%
+                  - cell [ref=f3e622]:
+                    - generic [ref=f3e510]: 79.5%
+                - row [ref=f3e623]:
+                  - cell [ref=f3e624]: 2026-11-15
+                  - cell [ref=f3e625]: morning
+                  - cell [ref=f3e626]: 501 / 450
+                  - cell [ref=f3e627]: 479 / 22
+                  - cell [ref=f3e628]: 441m
+                  - cell [ref=f3e629]: 91.9% | 85.2% | 95.6%
+                  - cell [ref=f3e630]:
+                    - generic [ref=f3e519]: 74.8%
+                - row [ref=f3e631]:
+                  - cell [ref=f3e632]: 2026-11-15
+                  - cell [ref=f3e633]: afternoon
+                  - cell [ref=f3e634]: 561 / 450
+                  - cell [ref=f3e635]: 538 / 23
+                  - cell [ref=f3e636]: 459m
+                  - cell [ref=f3e637]: 95.6% | 91.7% | 95.9%
+                  - cell [ref=f3e638]:
+                    - generic [ref=f3e528]: 84.1%
+                - row [ref=f3e639]:
+                  - cell [ref=f3e640]: 2026-11-14
+                  - cell [ref=f3e641]: morning
+                  - cell [ref=f3e642]: 517 / 450
+                  - cell [ref=f3e643]: 492 / 25
+                  - cell [ref=f3e644]: 441m
+                  - cell [ref=f3e645]: 91.9% | 87.9% | 95.2%
+                  - cell [ref=f3e646]:
+                    - generic [ref=f3e537]: 76.9%
+                - row [ref=f3e647]:
+                  - cell [ref=f3e648]: 2026-11-14
+                  - cell [ref=f3e649]: afternoon
+                  - cell [ref=f3e650]: 537 / 450
+                  - cell [ref=f3e651]: 519 / 18
+                  - cell [ref=f3e652]: 426m
+                  - cell [ref=f3e653]: 88.8% | 94.5% | 96.7%
+                  - cell [ref=f3e654]:
+                    - generic [ref=f3e546]: 81.1%
+                - row [ref=f3e655]:
+                  - cell [ref=f3e656]: 2026-11-13
+                  - cell [ref=f3e657]: morning
+                  - cell [ref=f3e658]: 550 / 450
+                  - cell [ref=f3e659]: 538 / 12
+                  - cell [ref=f3e660]: 457m
+                  - cell [ref=f3e661]: 95.2% | 90.3% | 97.8%
+                  - cell [ref=f3e662]:
+                    - generic [ref=f3e555]: 84.1%
+                - row [ref=f3e663]:
+                  - cell [ref=f3e664]: 2026-11-13
+                  - cell [ref=f3e665]: afternoon
+                  - cell [ref=f3e666]: 577 / 450
+                  - cell [ref=f3e667]: 571 / 6
+                  - cell [ref=f3e668]: 455m
+                  - cell [ref=f3e669]: 94.8% | 95.1% | 99.0%
+                  - cell [ref=f3e670]:
+                    - generic [ref=f3e564]: 89.2%
+                - row [ref=f3e671]:
+                  - cell [ref=f3e672]: 2026-11-12
+                  - cell [ref=f3e673]: morning
+                  - cell [ref=f3e674]: 545 / 450
+                  - cell [ref=f3e675]: 519 / 26
+                  - cell [ref=f3e676]: 432m
+                  - cell [ref=f3e677]: 90.0% | 94.6% | 95.2%
+                  - cell [ref=f3e678]:
+                    - generic [ref=f3e573]: 81.1%
+                - row [ref=f3e679]:
+                  - cell [ref=f3e680]: 2026-11-12
+                  - cell [ref=f3e681]: afternoon
+                  - cell [ref=f3e682]: 533 / 450
+                  - cell [ref=f3e683]: 527 / 6
+                  - cell [ref=f3e684]: 426m
+                  - cell [ref=f3e685]: 88.8% | 93.8% | 98.9%
+                  - cell [ref=f3e686]:
+                    - generic [ref=f3e582]: 82.3%
+    - list
+  - generic [aria-hidden] [ref=f3e407]: "25"
+  - menu [ref=f3e583]:
+    - menuitem "Português (BR)" [ref=f3e584]
+    - menuitem "English (US)" [active] [ref=f3e585]

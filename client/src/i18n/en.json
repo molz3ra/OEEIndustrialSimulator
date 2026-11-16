@@ -1,0 +1,118 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "confirm": "Confirm",
+    "back": "Back",
+    "actions": "Actions",
+    "status": "Status",
+    "notes": "Notes",
+    "date": "Date",
+    "shift": "Shift",
+    "machine": "Machine",
+    "all": "All",
+    "none": "None",
+    "page": "Page",
+    "of": "of"
+  },
+  "auth": {
+    "login": "Sign In",
+    "logout": "Log Out",
+    "username": "Username",
+    "password": "Password",
+    "loginTitle": "OEE Industrial System",
+    "loginSubtitle": "Shop floor line control and downtime loss analysis",
+    "demoCredentials": "Demo logins: operador / operador123 or gerente / gerente123",
+    "loggingIn": "Signing in..."
+  },
+  "nav": {
+    "operator": "Line Operation",
+    "dashboard": "OEE Dashboard",
+    "machines": "Machine Fleet",
+    "production": "Production Log",
+    "language": "Language"
+  },
+  "operator": {
+    "title": "Shop Floor Operator View",
+    "selectMachine": "Select Production Line Machine",
+    "lineDown": "REPORT LINE DOWN",
+    "lineUp": "LINE RUNNING / RESOLVE",
+    "activeDowntime": "ACTIVE LINE STOPPAGE",
+    "reportDowntime": "Report Line Downtime",
+    "downtimeReason": "Downtime Reason",
+    "reasonPlaceholder": "Select the reason for stoppage...",
+    "startDowntime": "Confirm Stoppage",
+    "downtimeStartedToast": "Line downtime started",
+    "downtimeEndedToast": "Line resumed! Downtime recorded.",
+    "selectMachinePrompt": "Please select a machine from the selector above to begin control",
+    "cycleTimeLabel": "Ideal Cycle Time",
+    "shiftTargetLabel": "Shift Target",
+    "units": "parts"
+  },
+  "downtime": {
+    "reasons": {
+      "mechanical_failure": "Mechanical Failure",
+      "electrical_failure": "Electrical Failure",
+      "material_shortage": "Material Shortage",
+      "tool_changeover": "Tool Changeover (Setup)",
+      "planned_maintenance": "Planned Maintenance",
+      "quality_issue": "Quality Adjustment",
+      "operator_absence": "Operator Absence / Break",
+      "other": "Other Reasons"
+    }
+  },
+  "oee": {
+    "title": "Overall Equipment Effectiveness (OEE)",
+    "availability": "Availability",
+    "performance": "Performance",
+    "quality": "Quality",
+    "overall": "Overall OEE",
+    "formula": "Availability × Performance × Quality"
+  },
+  "dashboard": {
+    "title": "OEE Management Dashboard",
+    "subtitle": "Real-time visibility into shop floor efficiency, losses and stoppages",
+    "totalDowntime": "Total Downtime",
+    "totalEvents": "Downtime Events",
+    "avgDuration": "Average Duration",
+    "activeNow": "Stopped Machines",
+    "topReasons": "Pareto Loss Analysis by Reason",
+    "distribution": "Downtime Distribution",
+    "recentEvents": "Recent Stoppage History",
+    "allMachines": "All Machines",
+    "filterByMachine": "Filter by Machine",
+    "oeeTrend": "OEE Trend (Recent Days)",
+    "worldClass": "World Class (≥ 85%)",
+    "acceptable": "Typical (70% - 84%)",
+    "critical": "Critical (< 70%)",
+    "duration": "Duration",
+    "reason": "Reason",
+    "timestamp": "Start Time"
+  },
+  "production": {
+    "title": "Shift Production Entry",
+    "subtitle": "Enter produced volume and scrap parts for OEE computation",
+    "recordProduction": "Log Shift Production",
+    "plannedQuantity": "Planned Target",
+    "producedQuantity": "Total Produced",
+    "goodQuantity": "Good Units (Conforming)",
+    "defectiveQuantity": "Scrap / Defective Units",
+    "plannedTimeMinutes": "Planned Time (minutes)",
+    "actualRunTimeMinutes": "Operating Time (minutes)",
+    "calculatedOEE": "Calculated Shift OEE",
+    "savedToast": "Production entry saved successfully!"
+  },
+  "machines": {
+    "title": "Machine Management",
+    "subtitle": "Technical machinery profiles and target parameters",
+    "newMachine": "Add Machine",
+    "name": "Machine Name",
+    "code": "Code / Tag",
+    "idealCycle": "Ideal Cycle Time (seconds)",
+    "shiftTarget": "Target per Shift (units)",
+    "status": "Current Status"
+  }
+}

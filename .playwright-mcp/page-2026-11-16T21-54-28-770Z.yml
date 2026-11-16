@@ -1,0 +1,96 @@
+- generic [active] [ref=f3e1]:
+  - generic [ref=f3e2]:
+    - generic [ref=f3e31]:
+      - banner [ref=f3e32]:
+        - generic [ref=f3e33]:
+          - generic [ref=f3e34]:
+            - link "OEE SIMULATOR" [ref=f3e35] [cursor=pointer]:
+              - /url: /operador
+              - generic [ref=f3e36]: OEE
+              - generic [ref=f3e37]: SIMULATOR
+            - combobox [ref=f3e39] [cursor=pointer]:
+              - generic: Torno CNC Haas ST-20
+          - navigation [ref=f3e42]:
+            - link [ref=f3e43] [cursor=pointer]:
+              - /url: /operador
+              - button "Operação de Linha" [ref=f3e44]
+            - link [ref=f3e47] [cursor=pointer]:
+              - /url: /dashboard
+              - button "Dashboard OEE" [ref=f3e48]
+            - link [ref=f3e51] [cursor=pointer]:
+              - /url: /producao
+              - button "Registro de Produção" [ref=f3e52]
+          - generic [ref=f3e56]:
+            - button [ref=f3e57] [cursor=pointer]
+            - generic [ref=f3e61]:
+              - generic [ref=f3e62]:
+                - generic [ref=f3e63]: Lucas Operador
+                - generic [ref=f3e64]: operator
+              - button "Sair" [ref=f3e65] [cursor=pointer]
+      - main [ref=f3e69]:
+        - generic [ref=f3e70]:
+          - generic [ref=f3e72]:
+            - generic [ref=f3e73]:
+              - generic [ref=f3e74]:
+                - generic [ref=f3e75]: CNC-01
+                - heading "Torno CNC Haas ST-20" [level=2] [ref=f3e76]
+                - generic [ref=f3e77]: EM OPERAÇÃO
+              - paragraph [ref=f3e78]: Torno CNC de alta precisão para usinagem pesada
+            - generic [ref=f3e79]:
+              - generic [ref=f3e80]:
+                - generic [ref=f3e81]: Tempo Ciclo Ideal
+                - generic [ref=f3e82]: 45s / peça
+              - generic [ref=f3e83]:
+                - generic [ref=f3e84]: Meta do Turno
+                - generic [ref=f3e85]: 450 peças
+          - generic [ref=f3e86]:
+            - generic [ref=f3e87]:
+              - generic [ref=f3e88]:
+                - generic [ref=f3e89]: Ação de Linha do Operador
+                - button "REGISTRAR PARADA" [ref=f3e90] [cursor=pointer]
+                - paragraph [ref=f3e93]: Pressione ao interromper a produção por qualquer motivo mecânico, setup ou falta de insumo.
+              - generic [ref=f3e94]:
+                - generic [ref=f3e98]:
+                  - heading "Encerrando o turno?" [level=4] [ref=f3e99]
+                  - paragraph [ref=f3e100]: Registre as peças produzidas e refugos para atualizar os cálculos de Performance e Qualidade.
+                - link [ref=f3e101] [cursor=pointer]:
+                  - /url: /producao
+                  - button "Apontar Produção" [ref=f3e102]
+            - generic [ref=f3e103]:
+              - generic [ref=f3e104]:
+                - heading "Eficiência Global do Equipamento (OEE)" [level=3] [ref=f3e106]
+                - generic [ref=f3e108]:
+                  - generic [ref=f3e113]:
+                    - generic [ref=f3e114]: OEE Geral
+                    - generic [ref=f3e115]: 89.1%
+                  - generic [ref=f3e116]: Classe Mundial (World Class)
+              - generic [ref=f3e117]:
+                - generic [ref=f3e118]:
+                  - generic [ref=f3e120]:
+                    - text: Disponibilidade
+                    - paragraph [ref=f3e121]: Tempo de operação real
+                  - generic [ref=f3e126]:
+                    - generic [ref=f3e127]: 94.4%
+                    - generic [ref=f3e128]: "Meta: ≥ 85%"
+                - generic [ref=f3e131]:
+                  - generic [ref=f3e133]:
+                    - text: Performance
+                    - paragraph [ref=f3e134]: Velocidade vs Ciclo Ideal
+                  - generic [ref=f3e138]:
+                    - generic [ref=f3e139]: 96.4%
+                    - generic [ref=f3e140]: "Meta: ≥ 85%"
+                - generic [ref=f3e143]:
+                  - generic [ref=f3e145]:
+                    - text: Qualidade
+                    - paragraph [ref=f3e146]: Peças boas sem refugo
+                  - generic [ref=f3e151]:
+                    - generic [ref=f3e152]: 97.9%
+                    - generic [ref=f3e153]: "Meta: ≥ 85%"
+    - region "Notifications (F8)":
+      - list [ref=f3e157]:
+        - status [ref=f3e158]:
+          - generic [ref=f3e159]:
+            - generic [ref=f3e160]: Sucesso
+            - generic [ref=f3e161]: Bem-vindo ao sistema OEE!
+          - button [ref=f3e162] [cursor=pointer]
+  - status [ref=f3e167]
